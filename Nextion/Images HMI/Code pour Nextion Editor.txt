@@ -1,0 +1,24 @@
+Commandes pour Nextion Editor
+
+if(c0.val==1)
+{
+ x3.val=x3.val+1
+}
+else if(c1.val==1)
+{
+ x3.val=x3.val+10
+}
+else if(c2.val==1)
+{
+ x3.val=x3.val+100
+}
+else
+{
+}
+page1.x3.val=x3.val
+
+page page2
+page2.x3.val=x3.val
+
+x3.val=2000
+
