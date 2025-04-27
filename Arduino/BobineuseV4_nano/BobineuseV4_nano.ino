@@ -23,7 +23,7 @@ Nextion library: https://github.com/itead/ITEADLIB_Arduino_Nextion
 This sketch was made for my new coilwinder with two stepper motor driver
 
 Made by Totof
-Last update: 05/04/2025
+Last update: 26/04/2025
 */
 
 #include <Arduino.h>
@@ -68,7 +68,16 @@ int RpmValue = 0; // Create variable to store value we are going to get the spee
 #define STEP_X 5
 #define DIR_Y 4
 #define STEP_Y 7
-#define MICROSTEPS 1
+/*
+     * Microstepping mode: 1, 2, 4, 8, 16 or 32 (where supported by driver)
+     * Mode 1 is full speed.
+     * Mode 32 is 32 microsteps per step.
+     * The motor should rotate just as fast (at the set RPM),
+     * but movement precision is increased, which may become visually apparent at lower RPMs.
+     *
+     *stepper.setMicrostep(8);   // Set microstep mode to 1:8
+     */
+#define MICROSTEPS 16
 // Motor steps per revolution. Most steppers are 200 steps or 1.8 degrees/step
 #define MOTOR_STEPS 200
 // Target RPM for X axis motor
@@ -246,7 +255,7 @@ void b3PopCallback(void *ptr)  // Release event for button b0
   x1.setValue(0);
   n1.setValue(0);
   n3.setValue(0);
-  n4.setValue(300);
+  n4.setValue(200);
 
   reboot();
 }  // End of press event
@@ -411,7 +420,7 @@ void TransformData(){
 
 void ChoiceRpmPot(){
   Value = analogRead(A7);
-  RpmValue = map(Value,0,1023,1,30);
+  RpmValue = map(Value,0,1023,1,20);
   Serial.print("n4.val=");  // This is sent to the nextion display to set what object name (before the dot) and what atribute (after the dot) are you going to change.
   Serial.print(RpmValue*10);  // This is the value you want to send to that object and atribute mentioned before.
   Serial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
@@ -420,7 +429,7 @@ void ChoiceRpmPot(){
 }
 
 void ChoiceRpm(){
-  Xrpm = K/10;
+  Xrpm = int(K/5);
   Yrpm = Xrpm*2;
 }
 
@@ -879,11 +888,6 @@ void setup() {  // Put your setup code here, to run once:
   stepperX.begin(MOTOR_X_RPM, MICROSTEPS);
   stepperY.begin(MOTOR_Y_RPM, MICROSTEPS);
   // End of registering the event callback functions
-  /*
-  * Set LINEAR_SPEED (accelerated) profile.
-  */
-  //stepperX.setSpeedProfile(stepperX.LINEAR_SPEED, MOTOR_ACCEL, MOTOR_DECEL);
-  //stepperY.setSpeedProfile(stepperY.LINEAR_SPEED, MOTOR_ACCEL, MOTOR_DECEL);
   
     
   pinMode(13, OUTPUT);
