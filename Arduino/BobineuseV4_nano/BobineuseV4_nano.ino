@@ -77,7 +77,7 @@ int RpmValue = 0; // Create variable to store value we are going to get the spee
      *
      *stepper.setMicrostep(8);   // Set microstep mode to 1:8
      */
-#define MICROSTEPS 16
+#define MICROSTEPS 4
 // Motor steps per revolution. Most steppers are 200 steps or 1.8 degrees/step
 #define MOTOR_STEPS 200
 // Target RPM for X axis motor
@@ -448,75 +448,40 @@ break;
  while (State == 1)  {
   nexLoop(nex_listen_list);  // Check for any touch event
   }
-if (i == 0){
-   stepperX.setRPM(Xrpm);
-   stepperY.setRPM(Yrpm);
-  }
-  else if (i == 1){
-   stepperX.setRPM(Xrpm*2);
-   stepperY.setRPM(Yrpm*2);
-  }
-  else if (i == 2){
-   stepperX.setRPM(Xrpm*3);
-   stepperY.setRPM(Yrpm*3);
-  }
-  else if (i == 3){
-   stepperX.setRPM(Xrpm*4);
-   stepperY.setRPM(Yrpm*4);
-  }
-  else if (i == 4){
-   stepperX.setRPM(Xrpm*5);
-   stepperY.setRPM(Yrpm*5);
-  }
-  else if (i == 5){
-   stepperX.setRPM(Xrpm*6);
-   stepperY.setRPM(Yrpm*6);
-  }
-  else if (i == 6){
-   stepperX.setRPM(Xrpm*7);
-   stepperY.setRPM(Yrpm*7);
-  }
-  else if (i == 7){
-   stepperX.setRPM(Xrpm*8);
-   stepperY.setRPM(Yrpm*8);
-  }
-  else if (i == 8){
+
+if (i == (L-8) || i == 8){
    stepperX.setRPM(Xrpm*9);
    stepperY.setRPM(Yrpm*9);
   }
-  else if (i == (L-8)){
-   stepperX.setRPM(Xrpm*9);
-   stepperY.setRPM(Yrpm*9);
-  }
-  else if (i == (L-7)){
+  else if (i == (L-7) || i == 7){
    stepperX.setRPM(Xrpm*8);
    stepperY.setRPM(Yrpm*8);
   }
-  else if (i == (L-6)){
+  else if (i == (L-6) || i == 6){
    stepperX.setRPM(Xrpm*7);
    stepperY.setRPM(Yrpm*7);
   }
-  else if (i == (L-5)){
+  else if (i == (L-5) || i == 5){
    stepperX.setRPM(Xrpm*6);
    stepperY.setRPM(Yrpm*6);
   }
-  else if (i == (L-4)){
+  else if (i == (L-4) || i == 4){
    stepperX.setRPM(Xrpm*5);
    stepperY.setRPM(Yrpm*5);
   }
-  else if (i == (L-3)){
+  else if (i == (L-3) || i == 3){
    stepperX.setRPM(Xrpm*4);
    stepperY.setRPM(Yrpm*4);
   }
-  else if (i == (L-2)){
+  else if (i == (L-2) || i == 2){
    stepperX.setRPM(Xrpm*3);
    stepperY.setRPM(Yrpm*3);
   }
-  else if (i == (L-1)){
+  else if (i == (L-1) || i == 1){
    stepperX.setRPM(Xrpm*2);
    stepperY.setRPM(Yrpm*2);
   }
-  else if (i == L){
+  else if (i == L || i == 0){
    stepperX.setRPM(Xrpm);
    stepperY.setRPM(Yrpm);
   }
@@ -542,82 +507,46 @@ nexLoop(nex_listen_list);  // Check for any touch event
 while (State == 1)  {
   nexLoop(nex_listen_list);  // Check for any touch event
   }
-if (i == 0){
-   stepperX.setRPM(Xrpm);
-   stepperY.setRPM(Yrpm);
-  }
-  else if (i == 1){
-   stepperX.setRPM(Xrpm*2);
-   stepperY.setRPM(Yrpm*2);
-  }
-  else if (i == 2){
-   stepperX.setRPM(Xrpm*3);
-   stepperY.setRPM(Yrpm*3);
-  }
-  else if (i == 3){
-   stepperX.setRPM(Xrpm*4);
-   stepperY.setRPM(Yrpm*4);
-  }
-  else if (i == 4){
-   stepperX.setRPM(Xrpm*5);
-   stepperY.setRPM(Yrpm*5);
-  }
-  else if (i == 5){
-   stepperX.setRPM(Xrpm*6);
-   stepperY.setRPM(Yrpm*6);
-  }
-  else if (i == 6){
-   stepperX.setRPM(Xrpm*7);
-   stepperY.setRPM(Yrpm*7);
-  }
-  else if (i == 7){
-   stepperX.setRPM(Xrpm*8);
-   stepperY.setRPM(Yrpm*8);
-  }
-  else if (i == 8){
+if (i == (L-8) || i == 8){
    stepperX.setRPM(Xrpm*9);
    stepperY.setRPM(Yrpm*9);
   }
-  else if (i == (L-8)){
-   stepperX.setRPM(Xrpm*9);
-   stepperY.setRPM(Yrpm*9);
-  }
-  else if (i == (L-7)){
+  else if (i == (L-7) || i == 7){
    stepperX.setRPM(Xrpm*8);
    stepperY.setRPM(Yrpm*8);
   }
-  else if (i == (L-6)){
+  else if (i == (L-6) || i == 6){
    stepperX.setRPM(Xrpm*7);
    stepperY.setRPM(Yrpm*7);
   }
-  else if (i == (L-5)){
+  else if (i == (L-5) || i == 5){
    stepperX.setRPM(Xrpm*6);
    stepperY.setRPM(Yrpm*6);
   }
-  else if (i == (L-4)){
+  else if (i == (L-4) || i == 4){
    stepperX.setRPM(Xrpm*5);
    stepperY.setRPM(Yrpm*5);
   }
-  else if (i == (L-3)){
+  else if (i == (L-3) || i == 3){
    stepperX.setRPM(Xrpm*4);
    stepperY.setRPM(Yrpm*4);
   }
-  else if (i == (L-2)){
+  else if (i == (L-2) || i == 2){
    stepperX.setRPM(Xrpm*3);
    stepperY.setRPM(Yrpm*3);
   }
-  else if (i == (L-1)){
+  else if (i == (L-1) || i == 1){
    stepperX.setRPM(Xrpm*2);
    stepperY.setRPM(Yrpm*2);
   }
-  else if (i == L){
+  else if (i == L || i == 0){
    stepperX.setRPM(Xrpm);
    stepperY.setRPM(Yrpm);
   }
   else{
    stepperX.setRPM(Xrpm*10);
    stepperY.setRPM(Yrpm*10);
-  }  
+  }
 controller.rotate(360,-PPT*SW);  
 Serial.print("x3.val=");
 Serial.print(count*10);
@@ -647,82 +576,46 @@ break;
  while (State == 1)  {
   nexLoop(nex_listen_list);  // Check for any touch event
   }
-  if (i == 0){
-   stepperX.setRPM(Xrpm);
-   stepperY.setRPM(Yrpm);
-  }
-  else if (i == 1){
-   stepperX.setRPM(Xrpm*2);
-   stepperY.setRPM(Yrpm*2);
-  }
-  else if (i == 2){
-   stepperX.setRPM(Xrpm*3);
-   stepperY.setRPM(Yrpm*3);
-  }
-  else if (i == 3){
-   stepperX.setRPM(Xrpm*4);
-   stepperY.setRPM(Yrpm*4);
-  }
-  else if (i == 4){
-   stepperX.setRPM(Xrpm*5);
-   stepperY.setRPM(Yrpm*5);
-  }
-  else if (i == 5){
-   stepperX.setRPM(Xrpm*6);
-   stepperY.setRPM(Yrpm*6);
-  }
-  else if (i == 6){
-   stepperX.setRPM(Xrpm*7);
-   stepperY.setRPM(Yrpm*7);
-  }
-  else if (i == 7){
-   stepperX.setRPM(Xrpm*8);
-   stepperY.setRPM(Yrpm*8);
-  }
-  else if (i == 8){
+if (i == (L-8) || i == 8){
    stepperX.setRPM(Xrpm*9);
    stepperY.setRPM(Yrpm*9);
   }
-  else if (i == (L-8)){
-   stepperX.setRPM(Xrpm*9);
-   stepperY.setRPM(Yrpm*9);
-  }
-  else if (i == (L-7)){
+  else if (i == (L-7) || i == 7){
    stepperX.setRPM(Xrpm*8);
    stepperY.setRPM(Yrpm*8);
   }
-  else if (i == (L-6)){
+  else if (i == (L-6) || i == 6){
    stepperX.setRPM(Xrpm*7);
    stepperY.setRPM(Yrpm*7);
   }
-  else if (i == (L-5)){
+  else if (i == (L-5) || i == 5){
    stepperX.setRPM(Xrpm*6);
    stepperY.setRPM(Yrpm*6);
   }
-  else if (i == (L-4)){
+  else if (i == (L-4) || i == 4){
    stepperX.setRPM(Xrpm*5);
    stepperY.setRPM(Yrpm*5);
   }
-  else if (i == (L-3)){
+  else if (i == (L-3) || i == 3){
    stepperX.setRPM(Xrpm*4);
    stepperY.setRPM(Yrpm*4);
   }
-  else if (i == (L-2)){
+  else if (i == (L-2) || i == 2){
    stepperX.setRPM(Xrpm*3);
    stepperY.setRPM(Yrpm*3);
   }
-  else if (i == (L-1)){
+  else if (i == (L-1) | i == 1){
    stepperX.setRPM(Xrpm*2);
    stepperY.setRPM(Yrpm*2);
   }
-  else if (i == L){
+  else if (i == L || i == 0){
    stepperX.setRPM(Xrpm);
    stepperY.setRPM(Yrpm);
   }
   else{
    stepperX.setRPM(Xrpm*10);
    stepperY.setRPM(Yrpm*10);
-  }  
+  }
 controller.rotate(360,PPT*SW);
 Serial.print("x3.val=");
 Serial.print(count*10);
@@ -744,82 +637,46 @@ break;
  while (State == 1)  {
   nexLoop(nex_listen_list);  // Check for any touch event
   }
- if (i == 0){
-   stepperX.setRPM(Xrpm);
-   stepperY.setRPM(Yrpm);
-  }
-  else if (i == 1){
-   stepperX.setRPM(Xrpm*2);
-   stepperY.setRPM(Yrpm*2);
-  }
-  else if (i == 2){
-   stepperX.setRPM(Xrpm*3);
-   stepperY.setRPM(Yrpm*3);
-  }
-  else if (i == 3){
-   stepperX.setRPM(Xrpm*4);
-   stepperY.setRPM(Yrpm*4);
-  }
-  else if (i == 4){
-   stepperX.setRPM(Xrpm*5);
-   stepperY.setRPM(Yrpm*5);
-  }
-  else if (i == 5){
-   stepperX.setRPM(Xrpm*6);
-   stepperY.setRPM(Yrpm*6);
-  }
-  else if (i == 6){
-   stepperX.setRPM(Xrpm*7);
-   stepperY.setRPM(Yrpm*7);
-  }
-  else if (i == 7){
-   stepperX.setRPM(Xrpm*8);
-   stepperY.setRPM(Yrpm*8);
-  }
-  else if (i == 8){
+if (i == (L-8) || i == 8){
    stepperX.setRPM(Xrpm*9);
    stepperY.setRPM(Yrpm*9);
   }
-  else if (i == (L-8)){
-   stepperX.setRPM(Xrpm*9);
-   stepperY.setRPM(Yrpm*9);
-  }
-  else if (i == (L-7)){
+  else if (i == (L-7) || i == 7){
    stepperX.setRPM(Xrpm*8);
    stepperY.setRPM(Yrpm*8);
   }
-  else if (i == (L-6)){
+  else if (i == (L-6) || i == 6){
    stepperX.setRPM(Xrpm*7);
    stepperY.setRPM(Yrpm*7);
   }
-  else if (i == (L-5)){
+  else if (i == (L-5) || i == 5){
    stepperX.setRPM(Xrpm*6);
    stepperY.setRPM(Yrpm*6);
   }
-  else if (i == (L-4)){
+  else if (i == (L-4) || i == 4){
    stepperX.setRPM(Xrpm*5);
    stepperY.setRPM(Yrpm*5);
   }
-  else if (i == (L-3)){
+  else if (i == (L-3) || i == 3){
    stepperX.setRPM(Xrpm*4);
    stepperY.setRPM(Yrpm*4);
   }
-  else if (i == (L-2)){
+  else if (i == (L-2) || i == 2){
    stepperX.setRPM(Xrpm*3);
    stepperY.setRPM(Yrpm*3);
   }
-  else if (i == (L-1)){
+  else if (i == (L-1) || i == 1){
    stepperX.setRPM(Xrpm*2);
    stepperY.setRPM(Yrpm*2);
   }
-  else if (i == L){
+  else if (i == L || i == 0){
    stepperX.setRPM(Xrpm);
    stepperY.setRPM(Yrpm);
   }
   else{
    stepperX.setRPM(Xrpm*10);
    stepperY.setRPM(Yrpm*10);
-  }  
+  }
 controller.rotate(360,-PPT*SW);  
 Serial.print("x3.val=");
 Serial.print(count*10);
@@ -893,6 +750,9 @@ void setup() {  // Put your setup code here, to run once:
   pinMode(13, OUTPUT);
   pinMode(EN,OUTPUT);
   digitalWrite(EN,LOW);
+
+  controller.rotate(1,1);
+  controller.rotate(-1,-1);
     
 }  // End of setup
 
@@ -967,4 +827,4 @@ void loop() {  // Put your main code here, to run repeatedly:
 
 }  // End of loop
 
-
+
