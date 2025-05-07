@@ -37,6 +37,7 @@ But also some other interresting part made with my CNC to build it
 Some picture of the work in progress
 ![](Images/Bobineuse-1.jpg)
 ![](Images/Bobineuse-2.jpg)
+![](Images/Bobineuse-3.jpg)
 
 Here the function than my program include and which seems to me appropriate
 
